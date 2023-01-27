@@ -1,0 +1,6 @@
+[pylibjpeg.pixel_data_decoders]
+1.2.840.10008.1.2.5 = rle:decode_pixel_data
+
+[pylibjpeg.pixel_data_encoders]
+1.2.840.10008.1.2.5 = rle:encode_pixel_data
+

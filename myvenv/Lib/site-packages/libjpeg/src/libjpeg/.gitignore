@@ -1,0 +1,41 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+# configure artifacts
+autoconfig.h
+automakefile
+config.log
+config.status
+
+# make artifacts
+autom4te.cache
+jpeg
+*.list
+*.d
+
+# CVS repositories
+CVS
+
+# Left over images
+*.jpg
+*.jls
+*.ppm
+*.pgm
+*.pfm
+*.out
+
+# core dumps
+core
+
+# Editor temporaries
+*~

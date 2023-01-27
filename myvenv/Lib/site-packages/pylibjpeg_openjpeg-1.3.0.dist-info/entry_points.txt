@@ -1,0 +1,7 @@
+[pylibjpeg.jpeg_2000_decoders]
+openjpeg = openjpeg:decode
+
+[pylibjpeg.pixel_data_decoders]
+1.2.840.10008.1.2.4.90 = openjpeg:decode_pixel_data
+1.2.840.10008.1.2.4.91 = openjpeg:decode_pixel_data
+
