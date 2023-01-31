@@ -1,24 +1,15 @@
 import pydicom
 
-#leitura do arquivo
 sr = pydicom.dcmread('sr.dcm')
 
-
-
-#estrutura de cada nó
-class No:
-    def __init__(self, node=None, firstChild= None, nextSibling=None):
-        
-        self.firstChild = firstChild
-        self.nextSibling = nextSibling
-
-
-#construção da lista ligada
-def linkedList(sr):
-    nodes = []
-    for elem in sr:
-        if elem.vr == 'SQ':
-            nodes.append
-        else:
-            nodes.append(elem)
+for elem in sr['ContentSequence']:
+    try:
+        for elem in elem['ContentSequence']:
+            print(elem['ConceptNameCodeSequence'][0]['CodeMeaning'].value)
+            try:
+                print(elem['MeasuredValueSequence'][0])
+            except:
+                print('INDEFINIDO;')
+    except:
+        print('Aguardando o próximo')
         
