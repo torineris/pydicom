@@ -1,2 +1,0 @@
-_CharLS
-jpeg_ls
