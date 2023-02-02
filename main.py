@@ -1,6 +1,8 @@
 import pydicom
 
 def recurse(dataset):
+    parsed_structured_report = {}
+
     for block in dataset:
         if block.tag == (0x0040, 0xa730):
             for item in block:
@@ -11,13 +13,15 @@ def recurse(dataset):
                 except:
                     numeric_value = 'Indefinido'
 
-                generating_string = str(code_meaning) + ': ' + str(numeric_value) + '\n'
-
-                file = open('structured_report.txt', 'a')
-                file.write(generating_string)
-                file.close()
+                parsed_structured_report[code_meaning] = numeric_value
 
                 [recurse(item) for item in block.value]
+    
+    file = open('structured_report.txt', 'a')
+    file.write(str(parsed_structured_report))
+    file.close()
+
+    return parsed_structured_report
 
 sr = pydicom.dcmread('sr.dcm')
 
