@@ -12,3 +12,13 @@ print(parsed_sr_instance.parsed_structured_reporting)
 
 # Método de pesquisa por nome de medida
 print(parsed_sr_instance.searchMeasureName('Gestational Age'))
+
+# Criação de arquivo com objeto completo
+file = open('structured_reporting.txt', 'a')
+file.write(str(parsed_sr_instance.parsed_structured_reporting))
+file.close()
+
+# Criação de arquivo com resultados da pesquisa
+file = open('search_found_results.txt', 'a')
+file.write(str(parsed_sr_instance.searchMeasureName('Gestational Age')))
+file.close()
