@@ -2,7 +2,24 @@ import pydicom
 from reportlab.pdfgen import canvas
 from structured_reporting_parse.StructuredReportingParse import StructuredReportingParse
 
-from reportlab.pdfgen import canvas
+structured_reporting_dataset = pydicom.dcmread('data/sr.dcm')
+
+parsed_sr_instance = StructuredReportingParse(structured_reporting_dataset)
+
+
+gestational = parsed_sr_instance.searchMeasureName('Gestational Age')
+agelist=[]
+for key, value in gestational.items():
+    agelist.append(value['value'])
+
+def medval(list):
+    media = sum(list)/len(list)
+    return media
+
+print(medval(agelist))
+
+'''
+Função de criação do PDF
 def GeneratePDF(lista):
     try:
         nome_pdf = input('Informe o nome do PDF: ')
@@ -24,3 +41,4 @@ def GeneratePDF(lista):
 
 lista = {'Rafaela': '19', 'Jose': '15', 'Maria': '22','Eduardo':'24'}
 GeneratePDF(lista)
+'''
