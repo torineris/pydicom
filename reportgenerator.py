@@ -5,22 +5,16 @@ from structured_reporting_parse.StructuredReportingParse import StructuredReport
 structured_reporting_dataset = pydicom.dcmread('data/sr.dcm')
 parsed_sr_instance = StructuredReportingParse(structured_reporting_dataset)
 
-#Coleta de tags (biometria fetal - 1° trimestre)
-fetuses = parsed_sr_instance.searchMeasureName('Number of Fetuses')
-amniotic_fluid = parsed_sr_instance.searchMeasureName('Amniotic Fluid Index')
-biparietal_diameter = parsed_sr_instance.searchMeasureName('Biparietal Diameter')
-head_circumference = parsed_sr_instance.searchMeasureName('Head Circumference')
-femur_length = parsed_sr_instance.searchMeasureName('Femur Length')
-heart_rate = parsed_sr_instance.searchMeasureName('Fetal Heart Rate')
-occipital_frontal = parsed_sr_instance.searchMeasureName('Occipital-Frontal Diameter')
-abdominal_circumference = parsed_sr_instance.searchMeasureName('Abdominal Circumference')
-gestational_age = parsed_sr_instance.searchMeasureName('Gestational Age')
-estimated_weight = parsed_sr_instance.searchMeasureName('Estimated Weight')
-
-tags=[fetuses,amniotic_fluid,biparietal_diameter,head_circumference,femur_length,heart_rate,occipital_frontal,abdominal_circumference,gestational_age,estimated_weight]
-data={}
+#Coletando as medidas
+fetal_biometry=['Number of Fetuses','Amniotic Fluid Index','Biparietal Diameter',
+'Head Circumference','Femur Length','Fetal Heart Rate','Occipital-Frontal Diameter',
+'Abdominal Circumference','Gestational Age','Estimated Weight']
+tags=[]
+for item in fetal_biometry:
+    tags.append(parsed_sr_instance.searchMeasureName(measure_name=item))
 
 #Construção de um dicionário com as tags de interesse
+data={}
 for item in tags:
     def dataCollector(item):
         for key, value in item.items():
