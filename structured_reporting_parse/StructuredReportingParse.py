@@ -1,7 +1,6 @@
 class StructuredReportingParse:
     def __init__(self, dataset):
         self.dataset = dataset
-        # TODO: refatorar solução com index
         self.index = 0
         self.parsed_structured_reporting = {}
         self.recurse(dataset)
