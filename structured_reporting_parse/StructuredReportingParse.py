@@ -1,5 +1,3 @@
-import pydicom
-
 class StructuredReportingParse:
     """Responsável pela busca recursiva e busca por tags em datasets gerados pelo PyDICOM."""
 
