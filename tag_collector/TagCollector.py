@@ -2,10 +2,12 @@ from structured_reporting_parse.StructuredReportingParse import StructuredReport
 from statistics import mean
 
 class TagCollector:
+    """Responsável por receber uma instância do StructuredReportingParse e selecionar valores baseado no tipo de exame escolhido."""
     def __init__(self, dataset: StructuredReportingParse):
         self.dataset = dataset
 
     def collectingTags(self, tags: list[str]) -> list:
+        """Método para coleta de tags específicas. Executado internamente."""
         found_values = []
 
         for item in tags:
@@ -14,7 +16,9 @@ class TagCollector:
         return found_values
 
     def gestationalTagCollector(self) -> dict:
-        # Coletando as medidas
+        """Coleta medidas relacionadas à um exame gestacional no dataset da instância."""
+
+        # Tags das medidas
         fetal_biometry = ['Gestational Age', 'Head Circumference', 'Abdominal Circumference', 'Amniotic Fluid Index', 'Biparietal Diameter', 'Estimated Weight', 'Femur Length', 'Fetal Heart Rate', 'Number of Fetuses', 'Occipital-Frontal Diameter']
 
         found_values = self.collectingTags(fetal_biometry)
