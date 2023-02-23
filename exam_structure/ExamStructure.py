@@ -27,8 +27,6 @@ class ExamStructure:
                     data_translated.update({gestational_translate[i][1]:value})
                 i+=1
         return data_translated
-    
-    translated_data = translator()
 
     def createPDF(self, translated_data):
         try:
