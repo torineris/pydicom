@@ -43,9 +43,11 @@ class TagCollector:
         for item in found_values:
             for key, value in item.items():
                 if value['measure_name'] == 'Gestational Age':
-                    data['Gestational Age'] = "{:.2f}".format(average_age)
+                    data['Gestational Age'] = str("{:.2f}".format(average_age))+" "+ value['measure_unit']
                 elif value['measure_name'] == 'Head Circumference':
-                    data['Head Circumference'] = max_value
+                    data['Head Circumference'] = str(max_value) +" "+ value['measure_unit']
+                elif value['measure_name'] == 'Number of Fetuses':
+                    data['Number of Fetuses'] = value['value']
                 else:
                     name = value['measure_name']
                     result = str(value['value']) +" "+ value['measure_unit']
