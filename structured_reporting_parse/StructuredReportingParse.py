@@ -21,7 +21,7 @@ class StructuredReportingParse:
                         numeric_value = 'Indefinido'
 
                     try:
-                        measure_unit = item['MeasuredValueSequence'][0]['MeasurementUnitsCodeSequence'][0]['CodeMeaning'].value
+                        measure_unit = item['MeasuredValueSequence'][0]['MeasurementUnitsCodeSequence'][0]['CodeValue'].value
                     except:
                         measure_unit = 'Indefinido'
 
