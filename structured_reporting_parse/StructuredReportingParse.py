@@ -20,10 +20,16 @@ class StructuredReportingParse:
                     except:
                         numeric_value = 'Indefinido'
 
+                    try:
+                        measure_unit = item['MeasuredValueSequence'][0]['MeasurementUnitsCodeSequence'][0]['CodeMeaning'].value
+                    except:
+                        measure_unit = 'Indefinido'
+
                     self.parsed_structured_reporting.update({
                         self.index: {
                             'measure_name': code_meaning,
-                            'value': numeric_value
+                            'value': numeric_value,
+                            'measure_unit': measure_unit
                         }
                     })
 

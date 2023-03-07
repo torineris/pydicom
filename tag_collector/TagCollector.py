@@ -48,7 +48,7 @@ class TagCollector:
                     data['Head Circumference'] = max_value
                 else:
                     name = value['measure_name']
-                    result = value['value']
+                    result = str(value['value']) +" "+ value['measure_unit']
                     data.update({name:result})
         
         return data
